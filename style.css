@@ -1,0 +1,136 @@
+/* General Readability & Scrollbar */
+html {
+    scrollbar-width: none; /* For Firefox */
+}
+html::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f4f7f9; /* A calm, light blue-grey */
+    color: #333; /* Darker text for better contrast */
+    transition: background-color 0.5s ease;
+}
+
+.active-nav {
+    color: #0d6efd; /* Bootstrap's primary blue */
+    font-weight: 700;
+}
+
+/* Modal styles */
+.modal-overlay {
+    transition: opacity 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.modal-content {
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Code block styles for readability */
+.code-block {
+    background-color: #282c34; /* One Dark Pro theme */
+    color: #abb2bf;
+    border-radius: 0.5rem;
+    padding: 1.25rem; /* More padding */
+    font-family: 'D2Coding', monospace;
+    white-space: pre-wrap;
+    word-break: break-all;
+    border: 1px solid #3e4451;
+    line-height: 1.6; /* Better line spacing */
+}
+.code-block .keyword { color: #c678dd; }
+.code-block .string { color: #98c379; }
+.code-block .comment { color: #7f848e; } /* Lighter comment color */
+.code-block .property { color: #e06c75; }
+.code-block .value { color: #d19a66; }
+
+/* Card styles */
+.diagram-box {
+    border: 1px solid #e2e8f0;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.diagram-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.08);
+}
+
+/* Graph System Fixes */
+.graph-node {
+    background-color: #eef2ff;
+    color: #4338ca;
+    border: 2px solid #c7d2fe;
+    z-index: 10;
+    position: absolute; /* Ensure it's absolute */
+}
+.graph-edge {
+    position: absolute;
+    height: 2px; /* Use height for horizontal line */
+    background-color: #6b7280;
+    transform-origin: 0 50%; /* Center the rotation */
+    z-index: 1;
+}
+.graph-edge-label {
+    position: absolute;
+    background-color: #ffffff;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    color: #4b5563;
+    border-radius: 4px;
+    z-index: 2;
+    transform: translate(-50%, -50%); /* Center the label on the line */
+}
+
+/* Section entrance animation */
+header {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Nav link animation */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0d6efd;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after, .active-nav::after {
+    width: 100%;
+}
+
+/* Modal content box-shadow */
+#modal-content {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Line-by-line reveal animation */
+.code-line {
+    display: block;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+}
+.code-line.is-visible {
+    opacity: 1;
+}

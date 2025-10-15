@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyra / Astra Interactive Specification v2.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-200">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-gray-800">Lyra / Astra v2.0</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600">개요</a>
+                        <a href="#syntax" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600">문법</a>
+                        <a href="#core-systems" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600">핵심 시스템</a>
+                        <a href="#dev-tools" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600">개발자 도구</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <section id="overview" class="mb-24">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">살아있는 문서, Lyra & Astra</h2>
+            <p class="text-lg text-gray-600 mb-8">Lyra/Astra는 단순한 마크업 언어를 넘어, 인간의 텍스트를 기계와 AI가 의미적으로 해석하고 재구성할 수 있는 구조적 문서 언어입니다. v2.0은 개발자 친화적인 생태계와 실용적인 문법 확장을 통해 완전한 메타 언어로 진화합니다.</p>
+            
+            <h3 class="text-2xl font-bold text-gray-800 mt-12 mb-6">3계층 언어 구조</h3>
+            <p class="text-gray-600 mb-8">Lyra와 Astra는 서술, 구조, 의미의 3가지 계층이 통합되어 하나의 추상 구문 트리(AST)로 변환되는 독특한 구조를 가집니다. 이를 통해 문서의 내용과 형식, 그리고 그 안에 담긴 의도까지 모두 표현할 수 있습니다.</p>
+            <div class="w-full max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="diagram-box">
+                        <span class="text-2xl mb-2">📄</span>
+                        <h4 class="font-bold text-lg text-indigo-700">L1: Narrative Layer</h4>
+                        <p class="text-sm text-gray-600 mt-2">인간이 읽고 쓰는 자연어 서술 계층. 문단, 주석 등 비구조적 콘텐츠.</p>
+                    </div>
+                    <div class="diagram-box">
+                        <span class="text-2xl mb-2">🔗</span>
+                        <h4 class="font-bold text-lg text-teal-700">L2: Structural Layer</h4>
+                        <p class="text-sm text-gray-600 mt-2">문서의 데이터 구조와 관계를 정의하는 구문 계층. (`@panel`, `@graph`)</p>
+                    </div>
+                    <div class="diagram-box">
+                        <span class="text-2xl mb-2">💡</span>
+                        <h4 class="font-bold text-lg text-amber-700">L3: Semantic Layer</h4>
+                        <p class="text-sm text-gray-600 mt-2">문서의 의미, 감정, 의도 등을 정의하는 메타 계층. (AI 해석용)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="syntax" class="mb-24">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Lyra 문법 탐색기</h2>
+            <p class="text-lg text-gray-600 mb-8">Lyra의 문법은 가독성과 명시성을 중심으로 설계되었습니다. 탭을 클릭하여 다양한 문법 구조를 확인하고, v2.0에서 추가된 편리한 단축 문법을 경험해보세요.</p>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="w-full md:w-1/4">
+                    <ul id="syntax-nav" class="space-y-2">
+                        <li><button data-target="basic" class="syntax-tab w-full text-left p-3 rounded-lg font-medium bg-white shadow-sm hover:bg-indigo-50">기본 구조</button></li>
+                        <li><button data-target="types" class="syntax-tab w-full text-left p-3 rounded-lg font-medium bg-white shadow-sm hover:bg-indigo-50">데이터 타입</button></li>
+                        <li><button data-target="extended" class="syntax-tab w-full text-left p-3 rounded-lg font-medium bg-white shadow-sm hover:bg-indigo-50">확장 문법 (v2.0)</button></li>
+                    </ul>
+                </div>
+                <div id="syntax-content-area" class="w-full md:w-3/4 p-6 bg-white rounded-lg shadow-sm min-h-[300px]">
+                </div>
+            </div>
+        </section>
+
+        <section id="core-systems" class="mb-24">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">핵심 시스템</h2>
+            <p class="text-lg text-gray-600 mb-8">Lyra의 강력함은 여러 핵심 시스템의 유기적인 결합에서 나옵니다. 각 카드를 클릭하여 시스템별 상세 기능과 예시를 확인해보세요.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="core-systems-grid">
+            </div>
+        </section>
+
+        <section id="dev-tools">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">개발자 생태계 및 도구 (v2.0)</h2>
+            <p class="text-lg text-gray-600 mb-8">v2.0은 개발 경험 향상에 초점을 맞춥니다. IDE 통합부터 강력한 CLI 도구까지, Lyra 개발을 지원하는 다양한 도구들을 만나보세요.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="dev-tools-grid">
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-white border-t border-gray-200 mt-24">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
+            <p>Lyra / Astra Interactive Specification v2.0 | Author: Uzu Lee</p>
+        </div>
+    </footer>
+
+    <div id="modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+        <div id="modal-content" class="modal-content bg-white rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 transform scale-95">
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+    <script src="animations.js" defer></script>
+</body>
+</html>
